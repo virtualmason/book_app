@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;">
+
   <title>Book Finder</title>
   <link rel="stylesheet" type="text/css" href='styles/base.css'>
 
@@ -11,8 +13,8 @@
 <body>
   <h1>Best Books!</h1>
   <h3>Search By title Or Author</h3>
-  <form action='/' method='post'>
-      <input type='text' placeholder="title" name='Enter a title or author'>
+  <form action='/searches' method='post'>
+      <input type='text' placeholder="title" name='searchQuery'>
       <input class="title" type="radio" name="title" value="title" checked>
       <label>title</label>
       <input class="author" type="radio" name="author" value="author">
