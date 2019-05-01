@@ -6,51 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;"> -->
   <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
-
-
   <title>Book Finder</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href='styles/base.css'>
-  
+  </head>
 
 <body>
-  <div class="container-fluid">
-    
-  <!-- <h1 class='d-flex justify-content-center'>Best Books!</h1>
-  <h3 class='d-flex justify-content-center'>Search By title Or Author</h3>
-  <form action='/searches' method='post'>
-      <input type='text' placeholder="title" name='searchQuery' class='block'>
-
-      <input class=" btn btn-success title" type="radio" name="search" value="title" >
-      <label>title</label>
-      <input class="authors" type="radio" name="search" value="authors">
-      <label>Author</label>
-    <input class="button" type='submit'>
-  </form> -->
-  <!-- =========== -->
-
-  <form action='/searches' method='post' class='text-center'>
-      <div class="form-group ">
-        <label for="searchQuery">Query For Info</label>
-        <input type="text" class="form-control text-center" name='searchQuery' id="searchQuery" aria-describedby="queryHelp" placeholder="Title">
+  <div class="container-fluid padding">
+    <h1>Search for your favorite book!</h1>
+  <form action='/searches' method='post' class = "shadow rounded">
+      <div class="form-group">
+        <label for="searchQuery">Keyword Search</label>
+        <input type="text" class="form-control half" name='searchQuery' id="searchQuery" aria-describedby="queryHelp" placeholder="Please enter a keyword.">
       </div>
-
-      <div class='text-center'>
-      <div class=' text-center'>
-      <div class="form-check form-check-inline text-center">
+      <div class = "row">
+      <div class='form-group col-6'>
+      <div class="form-check form-check-inline">
         <label for="inlineRadio1" class="form-check-label">Title</label>
         <input type="radio" name="search" value="title" class="form-check-input" id="inlineRadio1"  value="title">
       </div>
     </div>
-    <div class='text-center'>
-
+    <div class='form-group col-6'>
       <div class="form-check form-check-inline">
-          <label for="inlineRadio2" class="form-check-label"  value="authors" f>Author</label>
+          <label for="inlineRadio2" class="form-check-label"  value="authors">Author</label>
         <input  type="radio" name="search" value="authors" class="form-check-input" id="inlineRadio2">
     </div>
   </div>
   </div>
-      <button type="submit" class="btn btn-primary class='d-flex justify-content-center'">Submit</button>
+      <button type="submit" class="btn btn-danger btn-lg">Submit</button>
     </form>
 
 
