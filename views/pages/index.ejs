@@ -15,35 +15,42 @@
 
 <body>
   <div class="container-fluid">
-        
-      
-  <h1 class='d-flex justify-content-center'>Best Books!</h1>
+    
+  <!-- <h1 class='d-flex justify-content-center'>Best Books!</h1>
   <h3 class='d-flex justify-content-center'>Search By title Or Author</h3>
   <form action='/searches' method='post'>
       <input type='text' placeholder="title" name='searchQuery' class='block'>
+
       <input class=" btn btn-success title" type="radio" name="search" value="title" >
       <label>title</label>
       <input class="authors" type="radio" name="search" value="authors">
       <label>Author</label>
     <input class="button" type='submit'>
-  </form>
+  </form> -->
   <!-- =========== -->
 
-  <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <form action='/searches' method='post' class='text-center'>
+      <div class="form-group ">
+        <label for="searchQuery">Query For Info</label>
+        <input type="text" class="form-control text-center" name='searchQuery' id="searchQuery" aria-describedby="queryHelp" placeholder="Title">
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+      <div class='text-center'>
+      <div class=' text-center'>
+      <div class="form-check form-check-inline text-center">
+        <label for="inlineRadio1" class="form-check-label">Title</label>
+        <input type="radio" name="search" value="title" class="form-check-input" id="inlineRadio1"  value="title">
       </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div class='text-center'>
+
+      <div class="form-check form-check-inline">
+          <label for="inlineRadio2" class="form-check-label"  value="authors" f>Author</label>
+        <input  type="radio" name="search" value="authors" class="form-check-input" id="inlineRadio2">
+    </div>
+  </div>
+  </div>
+      <button type="submit" class="btn btn-primary class='d-flex justify-content-center'">Submit</button>
     </form>
 
 
