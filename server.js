@@ -1,72 +1,57 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-var cors = require('cors');
-
+// var cors = require('cors');
 const superagent = require('superagent');
+
+
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
-app.use(cors());
+// app.use(cors());
 app.use(express.static('./public'));
 app.get('/', (req, res) => {
-  //let url =`https://www.googleapis.com/books/v1/volumes?q=inauthor:steven+spielberg`;
-  //let url =`https://www.googleapis.com/books/v1/volumes?q=intitle:it`;
-
-
   res.render('./pages/index');
-
 
 });
 
 app.post('/searches', (req, res) => {
-
-  console.log(req.body);
-  let url =`https://www.googleapis.com/books/v1/volumes?q=${req.body.title ? 'intitle' : 'inauthor'}:${req.body.searchQuery}`;
+  // let url =`https://www.googleapis.com/books/v1/volumes?q=${req.body.searchQuery}+${req.body.title ? 'intitle' : 'inauthor'}:`;
+  let url =`https://www.googleapis.com/books/v1/volumes?q=${req.body.searchQuery}+${req.body.title ? 'intitle' : 'inauthor'}:`;
+  
   superagent
     .get(url)
-    .then((req,res) => {
+    .then((req) => {
       let info = req.body.items[0].volumeInfo;
-      // console.log('line 30', req.body.items[0].volumeInfo.title);
-      // console.log('line 31', req.body.items[0].volumeInfo.authors[0]);
       let author = info.authors[0];
-      let title = info.title;
-      console.log('line 32 : ',info);
-      let books = new Book (title, author);
-      
-    })
-    .catch(err => {
+      let title = info.title;       
+      let description = info.description;
+      let bookArray = [];
+      let image = info.imageLinks.thumbnail;
+      console.log("line 31 : ", image);
+      bookArray.push(new Book (title, author, description, image));
+      res.render('./pages/searches/show', {list:bookArray});
+
+    }).catch(err => {
       // err.message, err.response
       console.log(err);
     });
-  res.send('hi there');
+
 });
 
+//});
 
-let booksArray =[];
-function Book (title, author) {
-  //const placeholder = 'https//i..image/jpg'
+
+function Book (title, author,description, image) {
+  const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
+  let regex = /^(http:\/\/)/g;
+  let done = image.replace(regex,'https://');
+  console.log('done: ', done);
   this.author = author;
   this.title = title || 'no title available';
-  booksArray.push(this);
-  console.log('should be book arry line50 ',booksArray );
-
+  this.description = description || 'no discription available';
+  this.image = image?image.replace(regex,'https://') : placeholderImage ;
 }
-// console.log(booksArray);
 
-
-//Not working
-//let book = new Book({author:, title: });
-// (function() {
-//   //https://www.googleapis.com/apiName/apiVersion/resourcePath?parameters
-//   superagent
-//     .post('/searches')
-//     .send({ name: 'Manny', species: 'cat' }) // sends a JSON post body
-//     .set('X-API-Key', 'foobar')
-//     .set('accept', 'json')
-//     .end((err, res) => {
-//       // Calling the end function will send the request
-//     });
-// })();
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
