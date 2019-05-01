@@ -1,4 +1,8 @@
 body {
-  background: pink;
+  background: lightgray;
   font-size: 80px;
 }
+form-group {
+  width: 50%;
+  text-align: center;
+  }
