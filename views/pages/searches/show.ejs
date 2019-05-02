@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href='styles/base.css'>
   <title>Document</title>
 
 </head>
 <body>
-    <ul class="nav">
+    <!-- <ul class="nav">
         <li class="nav-item">
           <a class="nav-link active" href="#">Active</a>
         </li>
@@ -21,14 +22,25 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
-      </ul>
+      </ul> -->
+      <% let count = 0 %>
     <% list.forEach(function(book){ %>
     </p><%= book.title %></p>
-  </p><%= book.authors %></p>
+  </p><%= book.author %></p>
   </p><%= book.description %></p>
-  </p><img src= <%= book.image %> </p>
-
-
+</p><%= book.isbn %></p>
+<img src= "<%= book.image %>"/> 
+<form id ="<%= count %>" action='/save' method='post' class="bookform">
+<input name="title" placeholder= "<%= book.title %>" value= "<%= book.title %>" >
+<input name="authors" value=<%= book.author %>>
+<input name="description" value=<%= book.description %>>
+<input name="isbn" value="<%= book.isbn %>">
+<input name='image' value= "<%= book.image %>" > 
+</form>
+<input form ="<%= count %>" type ="submit" value ="Save">
+<% count++ %>
     <% }); %>
+    
 </body>
 </html>
+<!-- each item has save button and it renders on index -->
