@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 
 app.post('/save', (req, res) => {
   console.log('line 47' , req.body);
-  
+
   savebook(req.body, res);
   // .then(result => res.redirect(`/book/${result.rows[0].id}`));
 });
@@ -55,17 +55,30 @@ function savebook (book,res) {
   // id SERIAL PRIMARY KEY,
   // author VARCHAR(255),
   // title  VARCHAR(255),
-  // isbn   NUMERIC(30, 7), 
+  // isbn   NUMERIC(30, 7),
   // image_url VARCHAR(255),
   // description VARCHAR(255),
-  // bookshelf VARCHAR(255) 
+  // bookshelf VARCHAR(255)
   // );
   let SQL = `INSERT INTO books ( author, title, isbn, image_url, description) VALUES($1,$2,$3,$4,$5) RETURNING id`;
   let values = [book.authors, book.title, book.isbn, book.image, book.description];
 
-  client.query(SQL, values).then(result=>{
-    res.send(result);
+  client.query(SQL, values).then( ( error, data)=> {
+    let SQL = `SELECT * FROM books;`;
+    client.query(SQL, data).then((data, error)=>{
+      if (error) {
+        throw error;
+      }
+      console.log('line 72 ' ,data);
+      res.render(`./pages/index`, {info:data.rows, totalBooks:'1 million records'});
+
+    });
+
+
   });
+
+
+
 }
 
 app.post('/searches', (req, res) => {

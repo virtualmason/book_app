@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href='styles/base.css'>
+  <title>Document</title>
+
+</head>
+<body>
+    <h1>From Server</h1>
+
+      <% let count = 0 %>
+          <h3>Count: <%= info.length%></h3>
+
+    <% info.forEach((select)=>{ %>
+    </p><%= select.title %></p>
+  </p><%= select.author %></p>
+  </p><%= select.description %></p>
+</p><%= select.isbn %></p>
+<img src= "<%= select.image %>"/> 
+    <% }); %>
+    
+</body>
+</html>
