@@ -5,14 +5,17 @@ body {
 h1 {
   font-size: 25px; 
 }
+
 form {
   margin: auto; 
   width: 50%;
   background-color: #fff; 
   padding: 5%; 
   text-align: left;
-}
-
+  }
+ .bookform {
+   display: none; 
+  }
 input {
   padding: 10px; 
 }
