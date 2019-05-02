@@ -107,16 +107,16 @@ app.post('/searches', (req, res) => {
 
 });
 
-//});
 
-//if i search chicago and get book, only save shen they click save books
+
+ master
 function Book (title, author,description, image,isbn) {
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
   let regex = /^(http:\/\/)/g;
   //let done = image_url.replace(regex,'https://');
   this.author = author;
-  this.title = title || 'no title available';
-  this.description = description || 'no discription available';
+  this.title = title || 'No title available';
+  this.description = description || 'no description available';
   this.image = image?image.replace(regex,'https://') : placeholderImage ;
   this.isbn = isbn || 'ISBN_10 0435232932';
 }

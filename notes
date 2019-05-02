@@ -1,0 +1,16 @@
+// const pg = require('pg');
+// require('dotenv').config();
+
+// const client = new pg.Client(process.env.DATABASE_URL);
+// client.connect();
+// client.on('ERROR', (err) => {
+//   console.log(err);
+// });
+
+// app.get('./something', (req, res) => {
+//   const SQL = 'SELECT * FROM locations'
+//   client.query(SQL)
+//     .then((data) => {
+//       console.log(data);
+//     });
+// });

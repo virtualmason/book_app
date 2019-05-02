@@ -1,11 +1,31 @@
 body {
-  background: lightgray;
-}
-form-group {
-  width: 50%;
   text-align: center;
+  color: #333; 
+}
+h1 {
+  font-size: 25px; 
+}
+
+form {
+  margin: auto; 
+  width: 50%;
+  background-color: #fff; 
+  padding: 5%; 
+  text-align: left;
   }
  .bookform {
    display: none; 
-
   }
+input {
+  padding: 10px; 
+}
+form label {
+  font-size: 20px; 
+  margin-right: 6px; 
+}
+.half {
+  width: 50%; 
+}
+.padding {
+  padding: 5%; 
+}
