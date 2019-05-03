@@ -74,7 +74,6 @@ function savebook (book,res) {
 
     });
 
-
   });
 
 
@@ -107,9 +106,6 @@ app.post('/searches', (req, res) => {
 
 });
 
-
-
- master
 function Book (title, author,description, image,isbn) {
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
   let regex = /^(http:\/\/)/g;
