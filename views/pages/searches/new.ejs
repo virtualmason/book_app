@@ -15,45 +15,22 @@
 
 <body>
   <div class="container-fluid">
-    
-  <!-- <h1 class='d-flex justify-content-center'>Best Books!</h1>
-  <h3 class='d-flex justify-content-center'>Search By title Or Author</h3>
-  <form action='/searches' method='post'>
-      <input type='text' placeholder="title" name='searchQuery' class='block'>
-
-      <input class=" btn btn-success title" type="radio" name="search" value="title" >
-      <label>title</label>
-      <input class="authors" type="radio" name="search" value="authors">
-      <label>Author</label>
-    <input class="button" type='submit'>
-  </form> -->
-  <!-- =========== -->
-
-  <form action='/searches' method='post' class='text-center'>
-      <div class="form-group ">
-        <label for="searchQuery">Query For Info</label>
-        <input type="text" class="form-control text-center" name='searchQuery' id="searchQuery" aria-describedby="queryHelp" placeholder="Title">
+  <form action='/searches' method='post' class="shadow">
+      <div class="form-group">
+        <label for="searchQuery">Search by Book Title or Author</label>
+        <input type="text" class="form-control" name='searchQuery' id="searchQuery" aria-describedby="queryHelp" placeholder="Title">
       </div>
-
-      <div class='text-center'>
-      <div class=' text-center'>
-      <div class="form-check form-check-inline text-center">
-        <label for="inlineRadio1" class="form-check-label">Title</label>
+      <div class="form-check form-check-inline">
+        <label for="inlineRadio1" class="form-check-labe form-controll">Title</label>
         <input type="radio" name="search" value="title" class="form-check-input" id="inlineRadio1"  value="title">
       </div>
-    </div>
-    <div class='text-center'>
-
       <div class="form-check form-check-inline">
           <label for="inlineRadio2" class="form-check-label"  value="authors" f>Author</label>
         <input  type="radio" name="search" value="authors" class="form-check-input" id="inlineRadio2">
-    </div>
-  </div>
-  </div>
-      <button type="submit" class="btn btn-primary class='d-flex justify-content-center'">Submit</button>
-    </form>
+     </div>
 
-  <!-- ================= -->
+      <button type="submit" class="button">Submit</button>
+    </form>
 </div> 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
