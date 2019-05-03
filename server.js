@@ -74,7 +74,6 @@ function savebook (book,res) {
 
     });
 
-
   });
 
 
