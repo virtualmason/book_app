@@ -4,26 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
- day3
   <link rel="stylesheet" type="text/css" href='styles/base.css'>
   <title>Document</title>
-
- master
 
 </head>
 <body>
 
-    <h1>From Server</h1>
-
-      <% let count = 0 %>
-          <h3>Count: <%= info.length%></h3>
-
-    <% info.forEach((select)=>{ %>
-    </p><%= select.title %></p>
-  </p><%= select.author %></p>
-  </p><%= select.description %></p>
+ <h1>From Server</h1>
+ <% let count = 0 %>
+ <h3>Count: <%= info.length%></h3>
+ <% info.forEach((select)=>{ %>
+ </p><%= select.title %></p>
+ </p><%= select.author %></p>
+ </p><%= select.description %></p>
 </p><%= select.isbn %></p>
 <img src= "<%= select.image %>"/> 
+<form id ="<%= count %>" action='/detail' method='get' class="bookform">
+<input name="title" placeholder= "<%= select.title %>" value= "<%= select.title %>" >
+<input name="authors" value="<%= select.author %>">
+<input name="description" value="<%= select.description %>">
+<input name="isbn" value="<%= select.isbn %>">
+<input name='image' value= "<%= select.image %>" > 
+</form>
+<input form ="<%= count %>" type ="submit" value ="View Details">
+<% count++ %>
     <% }); %>
     
 
