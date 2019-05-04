@@ -22,8 +22,9 @@ app.get('/', (req, res) => {
   res.render('./pages/searches/new');
 
 });
-
+//index.ejs what parm is sent and why? get id and look in database and send it to detail?
 app.post('/books/:id', (req, res) => {
+  console.log('line 27', req.params.id);
 });
 
 app.post('/save', (req, res) => {
