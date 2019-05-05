@@ -25,10 +25,10 @@
       </ul> -->
       <% let count = 0 %>
     <% list.forEach(function(book){ %>
-    </p><%= book.title %></p>
-  </p><%= book.author %></p>
-  </p><%= book.description %></p>
-</p><%= book.isbn %></p>
+    <p><%= book.title %></p>
+  <p><%= book.author %></p>
+  <p><%= book.description %></p>
+<p><%= book.isbn %></p>
 <img src= "<%= book.image %>"/> 
 <form id ="<%= count %>" action='/save' method='post' class="bookform">
 <input name="title" placeholder= "<%= book.title %>" value= "<%= book.title %>" >

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href='styles/base.css'>
+  <title>Document</title>
+
+</head>
+<body>
+  <h1>Details Page</h1>
+    <!-- <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul> -->
+      <% let count = 0 %>
+    <% data.forEach(function(book){ %>
+    <p><%= book.title %></p>
+  <p><%= book.author %></p>
+  <p><%= book.description %></p>
+<p><%= book.isbn %></p>
+<p><%= book.bookshelf %></p>
+<img src= "<%= book.image_url %>"/> 
+<!-- <form id ="<%= count %>" action='/save' method='post' class="bookform">
+<input name="title" placeholder= "<%= book.title %>" value= "<%= book.title %>" >
+<input name="authors" value=<%= book.author %>>
+<input name="description" value="<%= book.description %>">
+<input name="isbn" value="<%= book.isbn %>">
+<input name='image' value= "<%= book.image %>" >  
+</form> -->
+<!-- <button id="button" value ="<%= book.id %>" >more details</button> -->
+<% count++ %>
+    <% }); %>
+    <!-- author: 'Molly',
+    title: 'The Paper Garden',
+    isbn: 'ISBN_13 9781608195237',
+    image_url:
+     'https://books.google.com/books/content?id=4sgI9qkBuBAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+    description:
+     'Traces the life and accomplishments of septuagenarian artist Mary Delany, describing her invention of the art of collage late in life after two heart-breaking marriages, in an account that also evaluates the roles of her relationships with such figures as Jonathan Swift, the Duchess of Portland and King George III. 35,000 first printing.',
+    bookshelf: null } ] -->
+
+</body>
+</html>
+<!-- each item has save button and it renders on index -->

@@ -1,0 +1,14 @@
+
+
+$('#button').on('click',function () {
+  let data =  $(this).val() ;
+  console.log(data, ' detail.js L- 5');
+  window.location.href = `/details/${data}`;
+  // $.get( `/details/${data} `).done((res, error) => {
+  //   if(error) console.log(error);
+  //   console.log(res);
+  //   document.write(res);
+  // });
+
+});
+
