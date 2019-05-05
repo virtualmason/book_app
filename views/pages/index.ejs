@@ -18,23 +18,14 @@
  </p><%= select.author %></p>
  </p><%= select.description %></p>
 </p><%= select.isbn %></p>
-<img src= "<%= select.image %>"/> 
-<form id ="<%= count %>" action='/detail' method='get' class="bookform">
-<input name="title" placeholder= "<%= select.title %>" value= "<%= select.title %>" >
-<input name="authors" value="<%= select.author %>">
-<input name="description" value="<%= select.description %>">
-<input name="isbn" value="<%= select.isbn %>">
-<input name='image' value= "<%= select.image %>" > 
-</form>
-<input form ="<%= count %>" type ="submit" value ="View Details">
+<p><%=select.id %></p>
+ <button id="button" value ="<%= select.id %>" >more details</button>
 <% count++ %>
     <% }); %>
     
 
 </div> 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="js/detail.js" ></script>
 </body>
 </html>

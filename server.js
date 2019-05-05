@@ -2,29 +2,29 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT|| 3000;
 require('dotenv').config();
-// var cors = require('cors');
 const superagent = require('superagent');
 const { Client } = require('pg');
 const client = new Client(process.env.DATABASE_URL);
 client.connect();
 client.on('err', err => console.log(err));
 
-// app.use(function (err, req, res) {
-//   console.error(err.stack);
-//   res.status(500).send('Something broke!');
-// });
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
-// app.use(cors());
 app.use(express.static('./public'));
 app.get('/', (req, res) => {
   res.render('./pages/searches/new');
 
 });
-//index.ejs what parm is sent and why? get id and look in database and send it to detail?
-app.post('/books/:id', (req, res) => {
-  console.log('line 27', req.params.id);
+
+// index.ejs what parm is sent and why? get id and look in database and send it to detail?
+app.get('/details/:id', (req, res) => {
+  let SQL = `SELECT * FROM books WHERE id=$1;`;
+  let value = [req.params.id];
+  client.query(SQL, value).then((data, error)=>{
+    console.log('from server L-26', data.rows);
+    res.render(`./pages/books/detail`,{data:data.rows} );
+  });
 });
 
 app.post('/save', (req, res) => {
@@ -32,17 +32,16 @@ app.post('/save', (req, res) => {
 });
 
 function savebook (book,res) {
-
   let SQL = `INSERT INTO books ( author, title, isbn, image_url, description) VALUES($1,$2,$3,$4,$5) RETURNING id`;
   let values = [book.authors, book.title, book.isbn, book.image, book.description];
 
   client.query(SQL, values).then( ( error, data)=> {
     let SQL = `SELECT * FROM books;`;
-    client.query(SQL, data).then((data, error)=>{
+    client.query(SQL).then((info, error)=>{
       if (error) {
         throw error;
       }
-      res.render(`./pages/index`, {info:data.rows, totalBooks:'1 million records'});
+      res.render(`./pages/index`, {info:info.rows});
 
     });
 
@@ -58,6 +57,7 @@ app.post('/searches', (req, res) => {
     .get(url)
     .then((req) => {
       let info = req.body.items;
+
       let bookArray= info.map(info=>{
         let title = info.volumeInfo.title;
         let author = info.volumeInfo.authors;
